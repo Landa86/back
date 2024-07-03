@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administracion de usuario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script>
+      function confirmationDelete(user_id){
+        var confirmation = Confirm ("Estas seguro que queres borrar?")
+        if(confirmation){
+          var form = document.createElement("form");
+          form.method = "POST"
+          form.action = "/deleteuser"+user_id
+          document.body.appendChild(form);
+          form.submit();
+
+        }
+
+      }
+    </script>
 </head>
 <body>
     <div class="my-5 text-center">
@@ -25,18 +39,19 @@
     </tr>
   </thead>
   <tbody>
+    
+    {% for item in data%}
     <tr>
-        {% for item in data%}
       <th scope="row">{{item.id}}</th>
       <td>{{item.name}}</td>
       <td>{{item.sex}}</td>
       <td>{{item.email}}</td>
       <td>
-            <button class="btn btn-succes">Edit </button>
-            <button class="btn btn-danger">Delete </button>
+           <a href="/edituser/{{item.id}}"> <button class="btn btn-succes">Edit </button>
+            <button class="btn btn-danger" type="button" onclick= "confirmationDelete"("{{item.id }}") >  Delete </button>
       </td>
-      {% endfor %}
     </tr>
+      {% endfor %}
   </tbody>
 </table>
 
