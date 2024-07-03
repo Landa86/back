@@ -24,12 +24,17 @@ def add_user_function():
     
 def edit_user_function(data):
     if request.method == "POST":
-        data.name=request.form["name"]
-        data.sex=request.form["sex"]
-        data.email=request.form["email"]
-        db.session.commit()
-        return data
-    
+        data.name = request.form["name"]
+        data.sex = request.form["sex"]
+        data.email = request.form["email"]
+
+        try:
+            db.session.commit()
+            return data 
+        except Exception as e:
+            db.session.rollback()
+            raise e  
+
 def delete_user_function(user):
     db.session.delete(user)
     db.session.commit()
