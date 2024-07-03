@@ -35,3 +35,7 @@ def edit_user_function(data):
         
         db.session.commit()
         return data
+    
+def delete_user_function(user):
+    db.session.delete(user)
+    db.session.commit()
