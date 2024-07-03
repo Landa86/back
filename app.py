@@ -8,7 +8,6 @@ from routes import main
 
 def create_app():
     app = Flask (__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:45851290@127.0.0.1:3306/back"
     app.config.from_object(Config)
     extensions(app) 
     register_resources(app)
