@@ -1,16 +1,13 @@
 from extensions import db
 
-
-
 class User(db.Model):
     __tablename__= "users"
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(80),nullable = False, unique = False)
     sex = db.Column(db.String(10))
     email = db.Column(db.String(200),nullable = False, unique = True)
-    coment= db.Column(db.Text)  
-    created_at =db.Column(db.DateTime(),nullable = False, server_default=db.func.now())
-    update_at =db.Column(db.DateTime(),nullable = False, server_default=db.func.now(),onupdate=db.func.now())
+    created_at =db.Coloumn(db.DateTime(),nullable = False, server_default=db.func.now())
+    update_at =db.Coloumn(db.DateTime(),nullable = False, server_default=db.func.now(),onupdate=db.func.now())
     
     @property
     def data(self):
@@ -18,9 +15,9 @@ class User(db.Model):
             "id":self.id,
             "name":self.name,
             "sex":self.sex,
-            "email":self.email,
-            "coment":self.coment,
+            "email":self.email
         }
+        
     def save(self):
         db.session.add(self)
         db.session.commit()
@@ -33,9 +30,8 @@ class User(db.Model):
         
         for i in r:
             result.append(i.data)
-         
         return result
     
     @classmethod
     def get_by_id(cls,id):
-         return cls.query.filter(cls.id == id).first()
+        return cls.query.filter(cls.id == id).first()
