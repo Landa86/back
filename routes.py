@@ -16,11 +16,14 @@ def add_user():
     print(data,file=sys.stderr) 
     return render_template("adduser.html",data=data)
 
+
 @main.route("/edituser/<int:id>", methods = ["GET","POST"])
 def edit_user(id):
     user = User.get_by_id()
     data = edit_user_function(user)
     return render_template("edituser.html",user=user,data=data)
+
+
 
 @main.route("/deleteuser/<int:id>",methods=["POST"])   
 def delete_user(id):
