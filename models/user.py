@@ -6,8 +6,8 @@ class User(db.Model):
     name = db.Column(db.String(80),nullable = False, unique = False)
     sex = db.Column(db.String(10))
     email = db.Column(db.String(200),nullable = False, unique = True)
-    created_at =db.Coloumn(db.DateTime(),nullable = False, server_default=db.func.now())
-    update_at =db.Coloumn(db.DateTime(),nullable = False, server_default=db.func.now(),onupdate=db.func.now())
+    created_at =db.Column(db.DateTime(),nullable = False, server_default=db.func.now())
+    update_at =db.Column(db.DateTime(),nullable = False, server_default=db.func.now(),onupdate=db.func.now())
     
     @property
     def data(self):
