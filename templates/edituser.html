@@ -10,33 +10,32 @@
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center aling-items-center h-100" >
             <div class="col-lg-8 col-x1-6">
+                <nav>
+                    <ol class="breadcrumb-item">
+                        <li class="breadcrumb"> 
+                          <a href="/"> Volver a inicio </a>
+                        </li>
+                    </ol>
+
+                </nav>
                 <div class="card rounded-3">
-                    <nav>
-                        <ol class="volver">
-                            <li class="volver-item">
-                                <a href="/"> Volver a inicio</a>
-                    </nav>
                     <div class="card-body p-4 p-md-5">
-                        <h2 class="mb-4 pb-2 pd-md--0 mb- md-5 px-md-2 text-center">Editar Usuario</h2>                     
-                        <form method="POST" action = "/edit user">
-                            <div class="form-group">
-                                <input type="text" id="name" name="name" class="form-control" placeholder={{user.name}}>
+                        <h2 class="mb-4 pb-2 pd-md--0 mb-md-5 px-md-2 text-center">Agregar Usuario</h2>                     
+                        <form method="POST" action = "/edituser">
+                             <div class="form-group">
+                                <input type="text" id="name" name="name" class="form-control" placeholder={{user.name}}></br>
                             </div>
                             <br/>
                             <div class="form-group">
-                                <input type="text" id="sex" name="sex" class="form-control" placeholder={{user.sex}}>
+                                <input type="text" id="sex" name="sex" class="form-control" placeholder={{user.sex}}></br>
                             </div>
                             <br/>
                             <div class="form-group">
-                                <input type="text" id="email" name="email" class="form-control" placeholder={{user.email}}>
-                            </div>
-                            <br/>
-                            <div class="form-group">
-                                <input type="text" id="coment" name="coment" class="form-control" placeholder={{user.coment}}>
+                                <input type="text" id="email" name="email" class="form-control" placeholder={{user.email}}></br>
                             </div>
                             <br/>
                             <br/>
-                            <input type="submit" class="btn btn-succes text-center"> 
+                            <input type="submit" class="btn btn-succes text-center">
                         </form>
                     </div>
                 </div>
