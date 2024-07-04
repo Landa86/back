@@ -1,5 +1,8 @@
 class Config:
     DEBUG = True
-    SQLALCHEMY_DATABASE_UR = "mysql+pymysql://usuario:contraseña@localhost:3306/nombre_base_datos"
+    #linkear la base de datos local
+    SQLALCHEMY_DATABASE_UR ="mysql+pymysql://root:@localhost" 
     SQLACHEMY_TRACK_MODIFICATIONS = False
     
+    
+ 
